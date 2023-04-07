@@ -1,0 +1,30 @@
+
+    .v-error{
+        margin-top: 0.25rem;
+        font-size: .875em;
+        color: #dc3545;
+    }
+    .input-error {
+        border: 1px solid #dc3545 !important;
+    }
+
+    .bro-text-add-parent{
+        background: #fafafa;
+        z-index: 50;
+        padding: 0 15px 0 3px;
+    }
+    .toggle-show {
+        right: 20;
+        /* transition: transform .2s ease, .5s ease; */
+        /* visibility: visible; */
+    }
+    .text-add-parent {
+        position: absolute;
+        display:none;
+        right: 25px;
+    }
+    .text-edit-parent{
+        position: absolute;
+        display:none;
+        right: 25px;
+    }

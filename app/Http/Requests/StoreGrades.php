@@ -24,13 +24,13 @@ class StoreGrades extends FormRequest
     public function rules()
     {
         return [
-            "Name_ar" => "required",
-            "Name_en" => "required",
+            "name_ar" => "required",
+            "name_en" => "required",
         ];
     }
     public function messages(){
         return [
-            "Name_ar.required" => trans('validation.required'),
+            "name_ar.required" => trans('validation.required'),
         ];
     }
 }

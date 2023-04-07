@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\View;
+// use App\Http\Controllers\ClassRooms\ClassRoomController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,11 +36,35 @@ Route::group(
         'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath','auth' ]
     ],
         function(){ 
+            //==============================dashboard============================//
             Route::get('/dashboard', [HomeController::class, 'index'])->name('home');
-    });
 
-Route::group(['namespace' => 'Grades'], function(){
-    Route::resource('Grade', GradeController::class);
+                            ///////////////// Grade /////////////
+            Route::group(['namespace' => 'Grades'], function(){
+                Route::resource('Grade', GradeController::class);
+            });
+
+                            //////////// Classes Rooms ///////////
+            Route::group(['namespace' => 'ClassRooms'], function(){
+                Route::resource('ClassRooms', ClassRoomController::class);
+                Route::post('delete_all', [ App\Http\Controllers\ClassRooms\ClassRoomController::class , 'delete_all'])->name('delete_all');
+                Route::post('search_grade', [ App\Http\Controllers\ClassRooms\ClassRoomController::class , 'search_grade'])->name('search_grade');
+            });
+
+            ///////////////// Sections /////////////
+            Route::group(['namespace' => 'Sections'], function(){
+                Route::resource('Sections', SectionsController::class);
+                Route::get('/classes/{id}', [App\Http\Controllers\Sections\SectionsController::class, 'getClasses'])->name('/classes/{id}');
+            });
+
+            //////////////////// Parents //////////////////////
+            Route::view('Parents', 'livewire.show_form');
+
+
+
+
+
+
 });
 
 

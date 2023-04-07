@@ -7,7 +7,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreGrades;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Http\Request;
-
+use PhpParser\Node\Stmt\TryCatch;
+use App\Models\ClassRoom;
 class GradeController extends Controller
 {
     /**
@@ -39,7 +40,26 @@ class GradeController extends Controller
      */
     public function store(StoreGrades $request)
     {
-        $validated = $request->validated();
+
+        if(Grade::where('name->ar', $request->name_ar)->orWhere('name->en', $request->name_en)->exists()){
+            return redirect()->back()->withErrors(trans('trans_school.Name_Repeated'));
+        }
+
+        try{
+            $validated = $request->validated();
+            $grade = new Grade() ;
+            $grade->name = ['en' => $request->name_en , 'ar' => $request->name_ar ];
+            $grade->notes = $request->Notes;
+            $grade->save();
+    
+            toastr()->success(message: trans('trans_school.Success'));
+            return redirect()->route('Grade.index');
+        }
+        catch(\Exception $e) {
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
+
+
     }
 
     /**
@@ -71,9 +91,23 @@ class GradeController extends Controller
      * @param  \App\Models\Models\Grade  $grade
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Grade $grade)
-    {
-        //
+    public function update(StoreGrades $request, Grade $grade)
+    {   
+
+        try{
+            $validated = $request->validated();
+            $id = $request->id;
+            $grade = Grade::findOrFail($id);
+            $grade->update([
+                    $grade->name = ['ar' => $request->name_ar , 'en' => $request->name_en],
+                    $grade->notes = $request->note,
+                ]);
+            toastr()->success(trans('trans_school.Success'));
+            return redirect()->route('Grade.index');
+        }
+        catch(\Exception $e) {
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
     }
 
     /**
@@ -82,8 +116,25 @@ class GradeController extends Controller
      * @param  \App\Models\Models\Grade  $grade
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Grade $grade)
+    public function destroy(Request $request)
     {
-        //
+        try{
+            $id = $request->id;
+            $class_room = ClassRoom::where('grade_id',$id)->pluck('grade_id');
+            if($class_room->count() == 0){
+                $grade = Grade::findOrFail($id)->delete();
+                toastr()->success(trans('trans_school.Success'));
+                return redirect()->route('Grade.index');
+            }else {
+                toastr()->error(trans('trans_school.cannot_be_deleted'));
+                return redirect()->route('Grade.index');
+            }
+
+        }
+        catch(\Exception $e) {
+            return redirect()->back()->withErrors(['error' => $e->getMessage()]);
+        }
+
+
     }
 }

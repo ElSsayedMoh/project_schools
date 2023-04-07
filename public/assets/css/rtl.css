@@ -4,13 +4,11 @@ Template:  Webmin - Bootstrap 4 & Angular 5 Admin Dashboard Template
 Author: potenzaglobalsolutions.com
 Design and Developed by: potenzaglobalsolutions.com
 Version : 1.0
-
 NOTE: This file includes all admin Template plugins and Shortcodes. If you don't want to use any plugins from below. You can simply remove that line from this file.
 */
 /*================================================
 [  Table of contents  ]
 ================================================
-
 1. Plugins (all the plugins css)
 2. Variables
 3. Mixins
@@ -28,7 +26,6 @@ NOTE: This file includes all admin Template plugins and Shortcodes. If you don't
 7. Sidebar
 8. Layout
 9. Responsive
-
 ======================================
 [ End table content ]
 ======================================*/
@@ -38,6 +35,8 @@ NOTE: This file includes all admin Template plugins and Shortcodes. If you don't
  * Copyright 2011-2018 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+
+@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@600&display=swap');
 :root {
   --blue: #007bff;
   --indigo: #6610f2;
@@ -72,11 +71,11 @@ NOTE: This file includes all admin Template plugins and Shortcodes. If you don't
 *,
 ::after,
 ::before {
-  box-sizing: border-box; }
+  box-sizing: border-box;
+ }
 
 html {
-  font-family: sans-serif;
-  line-height: 1.15;
+    line-height: 1.15;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: 100%;
   -ms-overflow-style: scrollbar;
@@ -101,7 +100,7 @@ section {
 
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-family: 'Cairo', sans-serif !important;
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
