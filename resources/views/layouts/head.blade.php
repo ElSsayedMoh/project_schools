@@ -11,6 +11,8 @@
 
 <link href="{{ URL::asset('css/wizard.css') }}" rel="stylesheet" id="bootstrap-css">
 <link href="{{ URL::asset('css/style.css') }}" rel="stylesheet" id="bootstrap-css">
+<link href="{{ URL::asset('scss/plugins/font-awesome.scss') }}" rel="stylesheet" id="bootstrap-css">
+
 @yield('css')
 <!--- Style css -->
 <link href="{{ URL::asset('scss/style.scss') }}" rel="stylesheet">

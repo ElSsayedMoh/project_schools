@@ -131,12 +131,12 @@
                     {{trans('trans_school.back_to_list_parents')}}
                 </button>
 
-                @if($updateMode)
-                    <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" wire:click="firstStepSubmit_update"
-                            type="button">{{trans('trans_school.Next')}}
+                @if(empty($updateMode))
+                    <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" wire:click="firstStepSubmit"
+                        type="button">{{trans('trans_school.Next')}}
                     </button>
                 @else
-                    <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" wire:click="firstStepSubmit"
+                    <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" wire:click="firstStepSubmit_update"
                         type="button">{{trans('trans_school.Next')}}
                     </button>
                 @endif

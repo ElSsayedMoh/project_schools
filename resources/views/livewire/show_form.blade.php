@@ -34,6 +34,22 @@
     <div class="col-md-12 mb-30">
         <div class="card card-statistics h-100">
             <div class="card-body">
+
+                <div>
+                @if (!empty($successMessage))
+                    <div class="alert alert-success" id="success-alert">
+                        <button type="button" class="close" data-dismiss="alert">x</button>
+                        {{ $successMessage }}
+                    </div>
+                @endif
+                
+                @if (isset($catchError))
+                    <div class="alert alert-danger" id="success-danger">
+                        <button type="button" class="close" data-dismiss="alert">x</button>
+                        {{ $catchError }}
+                    </div>
+                @endif
+                
                 <livewire:page-parents /> 
             </div>
         </div>
@@ -60,7 +76,6 @@
             $('.text-edit-parent').animate({right: '25px'})
             $('.text-edit-parent').hide(500);
         }
-
-
     </script>
+
 @endsection

@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\HomeController;
+// use App\Http\Controllers\Teachers\TeachersController;
 use Illuminate\Support\Facades\View;
 // use App\Http\Controllers\ClassRooms\ClassRoomController;
 
@@ -61,10 +62,13 @@ Route::group(
             Route::view('Parents', 'livewire.show_form');
 
 
+            ///////////////////// Teachers //////////////////////
+            Route::group(['namespace' => 'Teachers'], function(){
+                Route::resource('Teachers' , TeachersController::class);
+            });
 
-
-
-
+            ///////////////////// Students //////////////////////
+            Route::view('Students', 'Pages.Students.list_students');
 });
 
 

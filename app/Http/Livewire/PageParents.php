@@ -7,7 +7,9 @@ use App\Models\ParentAttachment;
 use App\Models\Parents;
 use App\Models\Religion;
 use App\Models\TypeBlood;
+use File;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -36,6 +38,7 @@ class PageParents extends Component
         $Address_Mother, $Religion_Mother_id;
 
         public function go_to_add_parent(){
+            $this->updateMode = false ;
             $this->parents_page = 2 ;
             $this->clearForm();
         }
@@ -69,21 +72,20 @@ public function render()
     public function firstStepSubmit(){
 
         $this->validate([ 
-            'Email' => 'required|unique:parents,Email,'.$this->id,
+            'Email' => 'required|unique:parents,Email,'.$this->parent_id,
             'Password' => 'required',
             'Name_Father' => 'required',
             'Name_Father_en' => 'required',
             'Job_Father' => 'required',
             'Job_Father_en' => 'required',
-            'National_ID_Father' => 'required|unique:parents,National_ID_Father,' . $this->id,
-            'Passport_ID_Father' => 'required|unique:parents,Passport_ID_Father,' . $this->id,
+            'National_ID_Father' => 'required|unique:parents,National_ID_Father,' . $this->parent_id,
+            'Passport_ID_Father' => 'required|unique:parents,Passport_ID_Father,' . $this->parent_id,
             'Phone_Father' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
             'Nationality_Father_id' => 'required',
             'Blood_Type_Father_id' => 'required',
             'Religion_Father_id' => 'required',
             'Address_Father' => 'required',
         ]);
-
         $this->currentStep = 2 ;
 
     }
@@ -148,7 +150,8 @@ public function render()
                 ]);
             }
         }
-        $this->successMessage = trans('trans_school.Success');
+        // $this->successMessage = trans('trans_school.Success');
+        toastr()->success(message: trans('trans_school.Success'));
         $this->clearForm();
         $this->currentStep = 1 ;
     }
@@ -184,9 +187,9 @@ public function render()
         $this->Blood_Type_Mother_id = '';
         $this->Address_Mother = '';
         $this->Religion_Mother_id = '';
+        $this->id = '';
     }
     public function edit($id){
-
         $this->parents_page = 2 ;
         $this->updateMode = true;
         $the_parent = Parents::where('id' , $id)->first();
@@ -217,6 +220,22 @@ public function render()
         $this->Blood_Type_Mother_id = $the_parent->blood_mother_id;
         $this->Address_Mother =$the_parent->address_mother;
         $this->Religion_Mother_id =$the_parent->religion_mother_id;
+
+        $this->validate([ 
+            'Email' => 'required|email|unique:parents,email,'.$this->parent_id,
+            'Password' => 'required',
+            'Name_Father' => 'required',
+            'Name_Father_en' => 'required',
+            'Job_Father' => 'required',
+            'Job_Father_en' => 'required',
+            'National_ID_Father' => 'required|unique:parents,National_ID_Father,' . $this->parent_id,
+            'Passport_ID_Father' => 'required|unique:parents,Passport_ID_Father,' . $this->parent_id,
+            'Phone_Father' => 'required|regex:/^([0-9\s\-\+\(\)]*)$/|min:10',
+            'Nationality_Father_id' => 'required',
+            'Blood_Type_Father_id' => 'required',
+            'Religion_Father_id' => 'required',
+            'Address_Father' => 'required',
+        ]);
         
     }
     public function firstStepSubmit_update(){
@@ -257,11 +276,32 @@ public function render()
             'religion_mother_id' => $this->Religion_Mother_id,
             ]);
 
+            if(!empty($this->photos)){
+                foreach($this->photos as $photo){
+                    $photo->storeAs($this->National_ID_Father , $photo->getClientOriginalName() , $disk = 'parent_attachments');
+                    ParentAttachment::create([
+                        'file_name' => $photo->getClientOriginalName(),
+                        'parent_id' => Parents::latest()->first()->id,
+                    ]);
+                }
+            }
+
+            $this->back_to_list_parents(); 
+            $this->currentStep = 1 ;
+            toastr()->success(message: trans('trans_school.Success'));
+            // return redirect()->to('/Parents');
 
         }
         catch (\Exception $e) {
             $this->catchError = $e->getMessage();
         };
+    }
 
+    public function delete($id){
+        $delete_parent = Parents::findOrFail($id);
+        // $attachment = ParentAttachment::find('parent_id' == $id);
+        Storage::deleteDirectory('parent_attachments/'.$delete_parent->national_id_father);
+        $delete_parent->delete();
+        toastr()->success(message: trans('trans_school.Success'));
     }
 }

@@ -28,3 +28,32 @@
         display:none;
         right: 25px;
     }
+    .teacher > option{
+        background-color: #74ac6b;
+    }
+    /* select:-internal-list-box option:checked  */
+    .teacher > option:selected{
+        background-color: #007bff61 !important;
+    }
+    /* option:has(.teacher):hover{
+    } */
+    .teacher-list {
+        /* display: table !important; */
+        width: 50% !important;
+        margin: auto;
+        box-shadow: 0px 0px 14px -9px !important;
+        border-radius: 10px !important;
+        padding-bottom: 0% !important ;
+        /* overflow-x: overlay !important; */
+        overflow: auto !important;
+
+    }
+    .teacher-list > option:hover{
+        background-color: #007bff61 !important ;
+
+    }
+    .parent-teacher {
+        display: flex;
+        flex-direction: column;
+        text-align: center;
+    }

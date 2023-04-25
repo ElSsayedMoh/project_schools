@@ -74,57 +74,10 @@
                             </tr>
 
 
-                    {{-- add model grade --}}
-                    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-                        aria-hidden="true">
-                        <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                                <div class="modal-header">
-                                    <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title" id="exampleModalLabel">
-                                        {{ trans('Trans_school.add_Grade') }}
-                                    </h5>
-                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                        <span aria-hidden="true">&times;</span>
-                                    </button>
-                                </div>
-                                <div class="modal-body">
-                                    <!-- add_form -->
-                                    <form action="{{route('Grade.store')}}" method="POST">
-                                        @csrf
-                                        <div class="row">
-                                            <div class="col">
-                                                <label for="Name" class="mr-sm-2">{{ trans('trans_school.Name_Grade_Ar') }}
-                                                    :</label>
-                                                <input id="Name" type="text" name="name_ar" class="form-control" required>
-                                            </div>
-                                            <div class="col">
-                                                <label for="Name_en" class="mr-sm-2">{{ trans('trans_school.Name_Grade_En') }}
-                                                    :</label>
-                                                <input type="text" class="form-control" name="name_en" required>
-                                            </div>
-                                        </div>
-                                        <div class="form-group">
-                                            <label for="exampleFormControlTextarea1">{{ trans('trans_school.Notes') }}
-                                                :</label>
-                                            <textarea class="form-control" name="Notes" id="exampleFormControlTextarea1"
-                                                rows="3"></textarea>
-                                        </div>
-                                        <br><br>
-                                
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-secondary"
-                                                data-dismiss="modal">{{ trans('trans_school.Close') }}</button>
-                                            <button type="submit" class="btn btn-success">{{ trans('trans_school.Submit') }}</button>
-                                        </div>
-                                    </form>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+
 
                     <!-- edit_modal_Grade -->
-                    <div class="modal fade" id="edit{{$grade->id}}" tabindex="-1" role="dialog"
-                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal fade" id="edit{{$grade->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
                             <div class="modal-content">
                                 <div class="modal-header">
@@ -226,6 +179,54 @@
                     </div>
 
                     @endforeach
+
+                                        {{-- add model grade --}}
+                                        <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+                                        aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                                <div class="modal-header">
+                                                    <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title" id="exampleModalLabel">
+                                                        {{ trans('Trans_school.add_Grade') }}
+                                                    </h5>
+                                                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                        <span aria-hidden="true">&times;</span>
+                                                    </button>
+                                                </div>
+                                                <div class="modal-body">
+                                                    <!-- add_form -->
+                                                    <form action="{{route('Grade.store')}}" method="POST">
+                                                        @csrf
+                                                        <div class="row">
+                                                            <div class="col">
+                                                                <label for="Name" class="mr-sm-2">{{ trans('trans_school.Name_Grade_Ar') }}
+                                                                    :</label>
+                                                                <input id="Name" type="text" name="name_ar" class="form-control" required>
+                                                            </div>
+                                                            <div class="col">
+                                                                <label for="Name_en" class="mr-sm-2">{{ trans('trans_school.Name_Grade_En') }}
+                                                                    :</label>
+                                                                <input type="text" class="form-control" name="name_en" required>
+                                                            </div>
+                                                        </div>
+                                                        <div class="form-group">
+                                                            <label for="exampleFormControlTextarea1">{{ trans('trans_school.Notes') }}
+                                                                :</label>
+                                                            <textarea class="form-control" name="Notes" id="exampleFormControlTextarea1"
+                                                                rows="3"></textarea>
+                                                        </div>
+                                                        <br><br>
+                                                
+                                                        <div class="modal-footer">
+                                                            <button type="button" class="btn btn-secondary"
+                                                                data-dismiss="modal">{{ trans('trans_school.Close') }}</button>
+                                                            <button type="submit" class="btn btn-success">{{ trans('trans_school.Submit') }}</button>
+                                                        </div>
+                                                    </form>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
                 </tbody>
                 </table>
             </div>

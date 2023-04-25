@@ -84,6 +84,6 @@
 
 <script>
     setTimeout(function() {
-        $('.alert').fadeOut('slow');
+        $('.alert-success').fadeOut('slow');
     }, 4000);
 </script>

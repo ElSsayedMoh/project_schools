@@ -32,8 +32,45 @@
                     <button onclick="parent_edit()" wire:click="edit({{ $parent->id }})" title="{{ trans('trans_school.Edit') }}"
                             class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></button>
 
-                    <button type="button" class="btn btn-danger btn-sm" wire:click="delete({{ $parent->id }})"
+                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete{{$parent->id}}" 
                             title="{{ trans('trans_school.Delete') }}"><i class="fa fa-trash"></i></button>
+
+                            {{-- <button type="button" class="btn btn-danger btn-sm" data-toggle="modal"
+                            data-target="#delete{{$grade->id}}"
+                            title="{{trans('trans_school.Delete')}}"><i
+                                class="fa fa-trash"></i></button> --}}
+
+                    <!-- delete_modal_Grade -->
+                    <div class="modal fade" id="delete{{$parent->id}}" tabindex="-1" role="dialog"
+                        aria-labelledby="exampleModalLabel" aria-hidden="true">
+                        <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <h5 style="font-family: 'Cairo', sans-serif;" class="modal-title"
+                                        id="exampleModalLabel">
+                                        {{trans('trans_school.Delete')}}
+                                    </h5>
+                                    <button type="button" class="close" data-dismiss="modal"
+                                        aria-label="Close">
+                                        <span aria-hidden="true">&times;</span>
+                                    </button>
+                                </div>
+                                <div class="modal-body">
+                                        <span class="float-left" style="font-size: initial;" >{{trans('trans_school.Are_you_sure_to_delete_the_process')}}</span><br><br>
+                                        
+                                        <input id="id" type="hidden" name="id" class="form-control"
+                                            value="{{$parent->id}}">
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary"
+                                                data-dismiss="modal">{{trans('trans_school.Close')}}</button>
+                                            <button type="button" wire:click="delete({{ $parent->id }})"
+                                                class="btn btn-danger" data-dismiss="modal">{{trans('trans_school.Submit')}}</button>
+                                        </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </td>
             </tr>
         @endforeach

@@ -1,6 +1,10 @@
 @extends('layouts.master')
 @section('css')
     @toastr_css
+    <style>
+    
+
+    </style>
 @section('title')
     {{trans('trans_school.list_of_sections')}}
 @stop
@@ -80,7 +84,7 @@
                                                                 <?php $i = 0; ?>
                                                                 @foreach ($Grade->Sections as $list_Sections)
                                                                     <tr>
-                                                                        <?php //$i++; ?>
+                                                                        <?php $i++; ?>
                                                                         <td>{{$i}}</td>
                                                                         <td>{{$list_Sections->name_section}}</td>
                                                                         <td>{{$list_Sections->Class_Room->name_class}}</td>
@@ -162,6 +166,21 @@
                                                                                             </select>
                                                                                         </div>
                                                                                         <br>
+
+                                                                                        <div class="col parent-teacher">
+                                                                                            <label for="inputName" class="control-label text-center ">{{ trans('trans_school.name_teacher') }}</label>
+                                                                                            <select name="teacher_id[]"  class="custom-select text-center teacher-list " multiple>
+
+                                                                                                @foreach($list_Sections->teachers as $teacher)
+                                                                                                    <option selected value="{{ $teacher->id}}">{{$teacher->name}}</option>
+                                                                                                @endforeach
+
+                                                                                                @foreach($teachers as $teacher)
+                                                                                                    <option value="{{ $teacher->id}}">{{$teacher->name}}</option>
+                                                                                                @endforeach
+                                                
+                                                                                            </select>
+                                                                                        </div>
 
                                                                                         <div class="col">
                                                                                             <div class="form-check">
@@ -295,15 +314,25 @@
                                             <select name="class_id" class="custom-select">
 
                                             </select>
+                                        </div><br>
+
+                                        <div class="col parent-teacher">
+                                            <label for="inputName" class="control-label text-center ">{{ trans('trans_school.name_teacher') }}</label>
+                                            <select name="teacher_id[]"  class="custom-select text-center teacher-list " multiple>
+                                                @foreach($teachers as $teacher)
+                                                    <option value="{{ $teacher->id}}">{{$teacher->name}}</option>
+                                                @endforeach
+
+                                            </select>
                                         </div>
 
 
                                 </div>
-                                <div class="modal-footer">
+                                <div class="modal-footer" style=" justify-content: space-around">
                                     <button type="button" class="btn btn-secondary"
                                             data-dismiss="modal">{{ trans('trans_school.Close') }}</button>
                                     <button type="submit"
-                                            class="btn btn-danger">{{ trans('trans_school.Submit') }}</button>
+                                            class="btn btn-primary">{{ trans('trans_school.Submit') }}</button>
                                 </div>
                                 </form>
                             </div>

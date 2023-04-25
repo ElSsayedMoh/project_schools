@@ -8,6 +8,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ClassRoom;
 use App\Models\Grade;
 use App\Http\Requests\StoreSections;
+use App\Models\Teachers;
 use Illuminate\Http\RedirectResponse;
 // use  Illuminate\Http\Request\StoreSections;
 use Illuminate\Validation\Validator;
@@ -24,8 +25,8 @@ class SectionsController extends Controller
     {
         $Grades = Grade::with(['Sections'])->get();
         $list_grade = Grade::all();
-        // return $Grades;
-        return view('Pages.Sections.sections', compact('Grades', 'list_grade')); 
+        $teachers = Teachers::all();
+        return view('Pages.Sections.sections', compact('Grades', 'list_grade' , 'teachers')); 
     }
 
     /**
@@ -55,6 +56,8 @@ class SectionsController extends Controller
             $Sections->class_id = $request->class_id;
             $Sections->status = 1 ;
             $Sections->save();
+            
+            $Sections->Teachers()->attach($request->teacher_id);
 
             toastr()->success(message: trans('trans_school.Success'));
             return redirect()->route('Sections.index');
@@ -62,6 +65,8 @@ class SectionsController extends Controller
         catch(\Exception $e) {
             return redirect()->back()->withErrors(['error' => $e->getMessage()]);
         }
+
+        // return $request ;
 
     }
 
@@ -108,6 +113,12 @@ class SectionsController extends Controller
                 $section->status = 1 ;
             }else {
                 $section->status = 2 ;
+            }
+
+            if(isset($request->teacher_id)){
+                $section->Teachers()->sync($request->teacher_id);
+            }else {
+                $section->Teachers()->sync(array());
             }
             $section->save();
             toastr()->success(message: trans('trans_school.Success'));
