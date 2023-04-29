@@ -17,8 +17,9 @@
         <div class="col-sm-6">
             <ol class="breadcrumb pt-0 pr-0" style="font-size: initial">
                 <li class="breadcrumb-item bro-text-add-parent"><a href="#" class="default-color">{{trans('trans_school.students')}}</a></li>
-                <li class="toggle-show text-add-parent breadcrumb-item" >{{trans('trans_school.add_student')}}</li>
-                <li class="toggle-show text-edit-parent breadcrumb-item" >{{trans('trans_school.edit_student')}}</li>
+                <li class="toggle-show text-add-student breadcrumb-item" >{{trans('trans_school.add_student')}}</li>
+                <li class="toggle-show text-edit-student breadcrumb-item" >{{trans('trans_school.edit_student')}}</li>
+                <li class="toggle-show text-details-student breadcrumb-item" >{{trans('trans_school.student_information')}}</li>
             </ol>
         </div>
 
@@ -62,21 +63,32 @@
 
 <script>
     function student_add(){
-        $('.text-add-parent').show(300);
-        $('.text-add-parent').animate({right: '90px'})
+        $('.text-add-student').show(300);
+        $('.text-add-student').animate({right: '90px'})
     }
 
     function student_edit(){
-        $('.text-edit-parent').show(300);
-        $('.text-edit-parent').animate({right: '90px'})
+        $('.text-edit-student').show(300);
+        $('.text-edit-student').animate({right: '90px'})
+    }
+
+    function student_details(){
+        $('.text-details-student').show(300);
+        $('.text-details-student').animate({right: '90px'})
     }
 
     function student_hide(){
-        $('.text-add-parent').animate({right: '25px'})
-        $('.text-add-parent').hide(500);
-        $('.text-edit-parent').animate({right: '25px'})
-        $('.text-edit-parent').hide(500);
+        $('.text-add-student').animate({right: '25px'})
+        $('.text-add-student').hide(500);
+
+        $('.text-edit-student').animate({right: '25px'})
+        $('.text-edit-student').hide(500);
+        
+        $('.text-details-student').animate({right: '25px'})
+        $('.text-details-student').hide(500);
     }
+
+
 </script>
 
 @endsection

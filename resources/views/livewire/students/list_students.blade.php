@@ -33,7 +33,7 @@
                     <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete{{ $student->id }}"
                          title="{{ trans('trans_school.Delete') }}"><i class="fa fa-trash"></i></button>
 
-                    <a href="#" class="btn btn-warning btn-sm" role="button" aria-pressed="true"><i class="far fa-eye"></i></a>
+                    <button wire:click="showDetailsStudent({{$student->id}})" onclick="student_details()" class="btn btn-warning btn-sm" role="button" aria-pressed="true"><i class="far fa-eye"></i></button>
                 </td>
             </tr>
 

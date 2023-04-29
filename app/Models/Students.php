@@ -33,6 +33,16 @@ class Students extends Model
         return $this->belongsTo('App\Models\Sections', 'section_id');
     }
 
+    public function nationality()
+    {
+        return $this->belongsTo('App\Models\Nationalities', 'nationalitie_id');
+    }
+
+    public function parents()
+    {
+        return $this->belongsTo('App\Models\Parents', 'parent_id');
+    }
+
     public function images()
     {
         return $this->morphMany(Image::class, 'imageable');

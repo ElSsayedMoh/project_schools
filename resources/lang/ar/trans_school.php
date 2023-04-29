@@ -123,6 +123,14 @@
         "Month" => "الشهر",
         "Day" => "اليوم",
         "back_to_list_students" => "العودة الي قائمة الطلاب",
+        "Attachments" => "المرفقات",
+        "student_information" => "معلومات الطالب",
+        "file_name" => "إسم الملف",
+        "created_at" => "تاريخ الإضافة",
+        "Download" => "تحميل",
+
+
+
 
 
 

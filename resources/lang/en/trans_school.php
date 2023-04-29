@@ -127,6 +127,13 @@
         "Month" => "The Month",
         "Day" => "The Day",
         "back_to_list_students" => "Back to List of Students",
+        "Attachments" => "Attachments",
+        "student_information" => "Student Information",
+        "file_name" => "File Name",
+        "created_at" => "Created At",
+        "Download" => "Download",
+
+
 
 
 

@@ -9,23 +9,27 @@ use App\Models\Nationalities;
 use App\Models\Parents;
 use App\Models\TypeBlood;
 use App\Models\Grade;
+use App\Models\Image;
 use App\Models\Sections;
 use App\Models\Students;
 use Flasher\Laravel\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
+use Livewire\WithFileUploads;
 
 class ClassStudents extends Component
 {
-    public $student_page = 1 , $catchError ;
+    use WithFileUploads;
+    public $student_page = 1 , $catchError , $page_student_information = 1 ;
     // protected $dates = ['birthdate'];
 
     // form inputs
     public $name_ar , $name_en , $email , $password , 
     $nationalitie_id ,$blood_id , $Grade_id ,$Classroom_id , $gender_id ,
-    $section_id ,$parent_id ,$academic_year , $year , $month , $day , $id_student ;
+    $section_id ,$parent_id ,$academic_year , $year , $month , $day , $id_student , $photos ;
 
     // Table variables
-    public $Genders , $nationals , $bloods , $my_classes , $parents , $grades , $sections ;
+    public $Genders , $nationals , $bloods , $my_classes , $parents , $grades , $sections , $Student ;
 
     public function render()
     {
@@ -148,6 +152,19 @@ class ClassStudents extends Component
             $add_student->academic_year = $this->academic_year;
             $add_student->date_birth = $this->year.'-'.$this->month.'-'.$this->day;
             $add_student->save();
+
+            if(!empty($this->photos)){
+                foreach($this->photos as $photo){
+                    $photo->storeAs('Attachments/students/'. $this->name_en , $photo->getClientOriginalName() , $disk = 'upload_attachments');
+                    Image::create([
+                        'file_name' => $photo->getClientOriginalName(),
+                        'imageable_id' => Students::latest()->first()->id,
+                        'imageable_type' => 'App\Models\Students',
+                    ]);
+                    
+                }
+            }
+
             toastr()->success(message: trans('trans_school.Success'));
             $this->clearForm();
 
@@ -174,6 +191,7 @@ class ClassStudents extends Component
         $this->my_classes = '';
         $this->sections = '';
         $this->id_student = '';
+        $this->photos = '';
     }
 
     public function EditStudentInDatabase(){
@@ -213,5 +231,55 @@ class ClassStudents extends Component
         $delete_student->delete();
         toastr()->success(message: trans('trans_school.Success'));
     }
+
+    public function showDetailsStudent($id){
+        $this->student_page = 4 ;
+        $Student = Students::findOrFail($id);
+        $this->Student = $Student ;
+    }
+
+    public function AddImage($id){
+        $student = Students::findOrFail($id);
+            foreach($this->photos as $photo){
+                $photo->storeAs('Attachments/students/'. $student->getTranslation('name' , 'en') , $photo->getClientOriginalName() , $disk = 'upload_attachments');
+                Image::create([
+                    'file_name' => $photo->getClientOriginalName(),
+                    'imageable_id' => $student->id,
+                    'imageable_type' => 'App\Models\Students',
+                ]);
+            }
+            toastr()->success(message: trans('trans_school.Success'));
+            $this->photos = null;
+            // $this->page_information();
+            // $this->page_image();
+
+    }
+
+    public function page_information(){
+        $this->page_student_information = 1 ;
+    }
+
+    public function page_image(){
+        $this->page_student_information = 2 ;
+    }
+
+    public function deleteAttachment($id){
+        try{
+        $delete_attachment = Image::findOrFail($id);
+        $name_student = Students::findOrFail($delete_attachment->imageable_id);
+        Storage::disk('upload_attachments')->delete('Attachments/students/'.$name_student->getTranslation('name', 'en').'/'.$delete_attachment->file_name);
+        $delete_attachment->delete();
+        toastr()->success(message: trans('trans_school.Success'));
+        }catch (\Exception $e) {
+            $this->catchError = $e->getMessage();
+        };
+    }
+
+    public function download_attachment($id){
+        $download_attach = Image::findOrFail($id);
+        $name_student = Students::findOrFail($download_attach->imageable_id);
+        return response()->download(public_path('Attachments/students/'.$name_student->getTranslation('name', 'en').'/'.$download_attach->file_name));
+    }
+    
 
 }

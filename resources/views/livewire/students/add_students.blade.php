@@ -235,6 +235,16 @@
                         </div>
                         </div><br>
 
+                        <div class="col-md-3">
+                            <div class="form-group">
+                                <label for="academic_year">{{trans('trans_school.Attachments')}} : <span class="text-danger">*</span></label>
+                                <input style="display:block" type="file" accept="image/*" wire:model='photos' multiple>
+                                @error('photos')
+                                    <div class="v-error">{{ $message }}</div> 
+                                @enderror
+                            </div>
+                        </div><br>
+
                         <button onclick="student_hide()" class="btn btn-primary btn-sm nextBtn btn-lg pull-right" type="button" wire:click="listStudent" style="margin: auto 5px">
                             {{trans('trans_school.back_to_list_students')}}
                         </button>
