@@ -128,6 +128,39 @@
         "file_name" => "إسم الملف",
         "created_at" => "تاريخ الإضافة",
         "Download" => "تحميل",
+        "This_field_is_required" => "هذا الحقل مطلوب",
+        "Students_Promotion" => "ترقية الطلاب",
+        "old_school_stage" => "المرحلة الدراسية القديمة",
+        "new_school_stage" => "المرحلة الدراسية الجديدة",
+        "There_is_no_data_in_the_students_table" => "لا توجد بيانات في جدول الطلاب",
+        "Students_Promotion_Management" => "إدارة ترقية الطلاب",
+        "list_pormotion" => "قائمة الترقيات",
+        "previous_grade" => "المرحلة الدراسية السابقة",
+        "previous_classroom" => "الصف الدراسي السابق",
+        "previous_section" => "القسم الدراسي السابق",
+        "Present_grade" => "المرحلة الدراسية الحالي",
+        "Present_classroom" => "الصف الدراسي الحالي",
+        "Present_section" => "القسم الدراسي الحالي",
+        "undo_all" => "التراجع عن الكل",
+        "Are_you_sure_about_the_retraction_process" => "هل أنت متأكد من عملية التراحع", 
+        "student_return" => "إرجاع طالب",
+        "Student_graduated" => "تخرج طالب",
+        "Add_a_new_graduation" => "إضافة تخرج جديد",
+        "List_of_graduates" => "قائمة المتخرجين",
+        "graduating_students" => "الطلاب المتخرجين",
+        "Are_you_sure_about_this_process" => "هل انت متاكد من هذه العملية ؟",
+
+
+
+
+
+
+
+
+        
+
+
+
 
 
 

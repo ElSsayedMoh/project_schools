@@ -66,7 +66,20 @@
                         </a>
                         <ul id="students-menu" class="collapse" data-parent="#sidebarnav">
                             <li> <a href="{{url('Students')}}">{{trans('trans_school.list_of_students')}} </a> </li>
-                        </ul>
+                            <li> <a href="{{route('StudentsPromotion.index')}}">{{trans('trans_school.Students_Promotion')}} </a> </li>
+                            <li> <a href="{{route('StudentsPromotion.create')}}">{{trans('trans_school.Students_Promotion_Management')}} </a> </li>
+                        
+
+                            <li>
+                                <a href="javascript:void(0);" data-toggle="collapse" data-target="#Students_upgrade">{{trans('trans_school.graduating_students')}}<div class="pull-right"><i class="ti-plus"></i></div><div class="clearfix"></div></a>
+                                <ul id="Students_upgrade" class="collapse">
+                                    <li> <a href="{{route('StudentsGraduate.create')}}">{{trans('trans_school.Add_a_new_graduation')}}</a></li>
+                                    <li> <a href="{{route('StudentsGraduate.index')}}">{{trans('trans_school.List_of_graduates')}}</a> </li>
+                                </ul>
+                            </li>
+
+                    </ul>
+
                     </li>
 
 

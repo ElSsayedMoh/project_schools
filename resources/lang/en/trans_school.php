@@ -132,6 +132,30 @@
         "file_name" => "File Name",
         "created_at" => "Created At",
         "Download" => "Download",
+        "This_field_is_required" => "This field is required",
+        "Students_Promotion" => "Students Promotion",
+        "old_school_stage" => "Old School Stage",
+        "new_school_stage" => "New School Stage",
+        "There_is_no_data_in_the_students_table" => "There is no data in the students table",
+        "Students_Promotion_Management" => "Students Promotion Management",
+        "list_pormotion" => "List Of Pormotions",
+        "previous_grade" => "Previous Grade",
+        "previous_classroom" => "Previous Class Room",
+        "previous_section" => "Previous Section",
+        "Present_grade" => "Present Grade",
+        "Present_classroom" => "Present Class Room",
+        "Present_section" => "Present Section",
+        "undo_all" => "Undo All",
+        "Are_you_sure_about_the_retraction_process" => "Are you sure about the retraction process?", 
+        "student_return" => "Student Return",
+        "Student_graduated" => "Student graduated",
+        "Add_a_new_graduation" => "Add a new graduation",
+        "List_of_graduates" => "List of graduates",
+        "graduating_students" => "Graduate students",
+        "Are_you_sure_about_this_process" => "Are you sure about this process?",
+        
+
+
 
 
 

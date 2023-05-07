@@ -29,3 +29,81 @@
 <!-- custom -->
 <script src="{{ URL::asset('assets/js/custom.js') }}"></script>
 
+<script>
+    $(document).ready(function(){
+        $('select[name="Grade_id_new"]').change(function(){
+            var Grade_id = $(this).val();
+            $.ajax({
+                type:'Get',
+                url:'{{route("getClassroom")}}',
+                dataType: "json",
+                data: { 'id' : Grade_id },
+                success:function(data) {
+                    $('select[name="Classroom_id_new"]').empty();
+                    $('select[name="Classroom_id_new"]').append('<option selected disabled >{{trans('trans_school.Choose')}}...</option>');
+                    $.each(data, function(key, value){
+                        $('select[name="Classroom_id_new"]').append('<option value="' + key + '">' + value + '</option>');
+                    })
+                }
+        });
+        })
+
+        $('select[name="Classroom_id_new"]').change(function(){
+            var Classroom_id = $(this).val();
+            $.ajax({
+                type:'Get',
+                url:'{{route("getSection")}}',
+                dataType: "json",
+                data: { 'id' : Classroom_id },
+                success:function(data) {
+                    $('select[name="section_id_new"]').empty();
+                    $('select[name="section_id_new"]').append('<option selected disabled >{{trans('trans_school.Choose')}}...</option>');
+                    $.each(data, function(key, value){
+                        $('select[name="section_id_new"]').append('<option value="' + key + '">' + value + '</option>');
+                    })
+                }
+        });
+        })
+
+    })
+</script>
+
+<script>
+    $(document).ready(function(){
+        $('select[name="Grade_id"]').change(function(){
+            var Grade_id = $(this).val();
+            $.ajax({
+                type:'Get',
+                url:'{{route("getClassroom")}}',
+                dataType: "json",
+                data: { 'id' : Grade_id },
+                success:function(data) {
+                    $('select[name="Classroom_id"]').empty();
+                    $('select[name="Classroom_id"]').append('<option selected disabled >{{trans('trans_school.Choose')}}...</option>');
+                    $.each(data, function(key, value){
+                        $('select[name="Classroom_id"]').append('<option value="' + key + '">' + value + '</option>');
+                    })
+                }
+        });
+        })
+
+        $('select[name="Classroom_id"]').change(function(){
+            var Classroom_id = $(this).val();
+            $.ajax({
+                type:'Get',
+                url:'{{route("getSection")}}',
+                dataType: "json",
+                data: { 'id' : Classroom_id },
+                success:function(data) {
+                    $('select[name="section_id"]').empty();
+                    $('select[name="section_id"]').append('<option selected disabled >{{trans('trans_school.Choose')}}...</option>');
+                    $.each(data, function(key, value){
+                        $('select[name="section_id"]').append('<option value="' + key + '">' + value + '</option>');
+                    })
+                }
+        });
+        })
+
+    })
+</script>
+

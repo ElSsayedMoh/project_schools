@@ -69,6 +69,14 @@ Route::group(
 
             ///////////////////// Students //////////////////////
             Route::view('Students', 'Pages.Students.list_students');
+            Route::group(['namespace' => 'Students'], function(){
+                Route::resource('StudentsPromotion' , StudentsPromotionController::class);
+                Route::get('getClassroom' , [App\Http\Controllers\Students\StudentsPromotionController::class , 'getClassroom'])->name('getClassroom');
+                Route::get('getSection' , [App\Http\Controllers\Students\StudentsPromotionController::class , 'getSection'])->name('getSection');
+                Route::resource('StudentsGraduate', StudentsGraduateController::class);
+                
+
+            });
 });
 
 

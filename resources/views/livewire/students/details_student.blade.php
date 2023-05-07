@@ -1,6 +1,6 @@
 <div class="row">
     <div class="col-md-12 mb-30">
-        <div class="card card-statistics h-100">
+        {{-- <div class="card card-statistics h-100"> --}}
             <div class="card-body">
 
                 @if (isset($catchError))
@@ -22,43 +22,42 @@
                         <div class="tab-content">
 
                             @if($page_student_information == 1)
-                                    <table class="table table-striped table-hover" style="text-align:center">
-                                        <tbody>
-                                        <tr>
-                                            <th scope="row">{{trans('trans_school.name_student')}}</th>
-                                            <td>{{ $Student->name }}</td>
-                                            <th scope="row">{{trans('trans_school.Email')}}</th>
-                                            <td>{{$Student->email}}</td>
-                                            <th scope="row">{{trans('trans_school.gender')}}</th>
-                                            <td>{{$Student->genders->name}}</td>
-                                            <th scope="row">{{trans('trans_school.Nationality')}}</th>
-                                            <td>{{$Student->nationality->name}}</td>
-                                        </tr>
+                                <table class="table table-striped table-hover table_details" style="text-align:center">
+                                    <tbody>
+                                    <tr>
+                                        <th scope="row">{{trans('trans_school.name_student')}}</th>
+                                        <td>{{ $Student->name }}</td>
+                                        <th scope="row">{{trans('trans_school.Email')}}</th>
+                                        <td>{{$Student->email}}</td>
+                                        <th scope="row">{{trans('trans_school.gender')}}</th>
+                                        <td>{{$Student->genders->name}}</td>
+                                        <th scope="row">{{trans('trans_school.Nationality')}}</th>
+                                        <td>{{$Student->nationality->name}}</td>
+                                    </tr>
 
-                                        <tr>
-                                            <th scope="row">{{trans('trans_school.Grade')}}</th>
-                                            <td>{{ $Student->grades->name }}</td>
-                                            <th scope="row">{{trans('trans_school.classrooms')}}</th>
-                                            <td>{{$Student->class_rooms->name_class}}</td>
-                                            <th scope="row">{{trans('trans_school.section')}}</th>
-                                            <td>{{$Student->sections->name_section}}</td>
-                                            <th scope="row">{{trans('trans_school.Date_of_Birth')}}</th>
-                                            <td>{{ $Student->date_birth }}</td>
-                                        </tr>
+                                    <tr>
+                                        <th scope="row">{{trans('trans_school.Grade')}}</th>
+                                        <td>{{ $Student->grades->name }}</td>
+                                        <th scope="row">{{trans('trans_school.classrooms')}}</th>
+                                        <td>{{$Student->class_rooms->name_class}}</td>
+                                        <th scope="row">{{trans('trans_school.section')}}</th>
+                                        <td>{{$Student->sections->name_section}}</td>
+                                        <th scope="row">{{trans('trans_school.Date_of_Birth')}}</th>
+                                        <td>{{ $Student->date_birth }}</td>
+                                    </tr>
 
-                                        <tr>
-                                            <th scope="row">{{trans('trans_school.parent')}}</th>
-                                            <td>{{ $Student->parents->name_father}}</td>
-                                            <th scope="row">{{trans('trans_school.academic_year')}}</th>
-                                            <td>{{ $Student->academic_year }}</td>
-                                            <th scope="row"></th>
-                                            <td></td>
-                                            <th scope="row"></th>
-                                            <td></td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-
+                                    <tr>
+                                        <th scope="row">{{trans('trans_school.parent')}}</th>
+                                        <td>{{ $Student->parents->name_father}}</td>
+                                        <th scope="row">{{trans('trans_school.academic_year')}}</th>
+                                        <td>{{ $Student->academic_year }}</td>
+                                        <th scope="row"></th>
+                                        <td></td>
+                                        <th scope="row"></th>
+                                        <td></td>
+                                    </tr>
+                                    </tbody>
+                                </table>
                             @endif
 
                             @if($page_student_information == 2)
@@ -71,6 +70,9 @@
                                                                 for="academic_year">{{trans('trans_school.Attachments')}}
                                                                 : <span class="text-danger">*</span></label>
                                                             <input type="file" accept="image/*" wire:model="photos" multiple>
+                                                            @if($messageImage != '')
+                                                                <div class="v-error">{{$messageImage}}</div>
+                                                            @endif
                                                         </div>
                                                     </div>
                                                     <br><br>
@@ -119,7 +121,7 @@
                             <button onclick="student_hide()" class="btn btn-primary btn-sm nextBtn btn-lg pull-right" type="button" wire:click="listStudent" style="margin: auto 5px">
                                 {{trans('trans_school.back_to_list_students')}}
                             </button>
-            </div>
+            {{-- </div> --}}
         </div>
     </div>
 </div>

@@ -4,6 +4,11 @@
         font-size: .875em;
         color: #dc3545;
     }
+    .m-error{
+        margin-top: 0.25rem;
+        font-size: .875em;
+        color: #dc3545;
+    }
     .input-error {
         border: 1px solid #dc3545 !important;
     }
@@ -51,4 +56,7 @@
         display: flex;
         flex-direction: column;
         text-align: center;
+    }
+    .table_details tbody tr th {
+        color: #84ba3f;
     }
