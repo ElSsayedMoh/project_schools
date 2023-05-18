@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Students;
 
 use App\Models\ClassRoom;
+use App\Models\Fees;
 use Livewire\Component;
 use App\Models\Genders;
 use App\Models\Nationalities;
@@ -10,10 +11,12 @@ use App\Models\Parents;
 use App\Models\TypeBlood;
 use App\Models\Grade;
 use App\Models\Image;
+use App\Models\Numbers;
 use App\Models\Sections;
 use App\Models\Students;
 use Illuminate\Support\Facades\File; 
 use Flasher\Laravel\Http\Request;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
@@ -22,17 +25,20 @@ use Illuminate\Support\Facades\Storage;
 class ClassStudents extends Component
 {
     use WithFileUploads;
-    public $student_page = 1 , $catchError , $page_student_information = 1 ;
+    public $student_page = 1 , $catchError , $page_student_information = 1 ,$Contact;
     // protected $dates = ['birthdate'];
 
     // form inputs
     public $name_ar , $name_en , $email , $password , 
-    $nationalitie_id ,$blood_id , $Grade_id ,$Classroom_id , $gender_id ,
+    $nationalitie_id ,$blood_id , $Grade_id ,$Classroom_id , $gender_id , $deleteRow, $fees,
     $section_id ,$parent_id ,$academic_year , $year , $month , $day , $id_student , $photos , $messageImage;
 
     // Table variables
     public $Genders , $nationals , $bloods , $my_classes , $parents , $grades , $sections , $Student ;
-    protected $listeners = ['refreshComponent' => '$refresh'];
+
+    // invoices
+    public $fee_id=[] , $amount=[] , $description=[] , $i = 1 , $inputs = [] ; 
+    protected $listeners = ['refreshComponent' => '$refresh' , 'deleteCon' => 'deleteConRefresh'];
 
     public function render()
     {
@@ -290,6 +296,12 @@ class ClassStudents extends Component
         $name_student = Students::findOrFail($download_attach->imageable_id);
         return response()->download(public_path('Attachments/students/'.$name_student->getTranslation('name', 'en').'/'.$download_attach->file_name));
     }
-    
+
+    public function addInvoice($id){
+
+        $student = Students::findOrFail($id);
+        $fees = Fees::all();
+        return view('Pages.Students.add_invoice', compact('student', 'fees'));
+    } 
 
 }

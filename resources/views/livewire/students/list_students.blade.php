@@ -7,7 +7,7 @@
         <thead>
         <tr>
             <th>#</th>
-            <th>{{trans('trans_school.name_student')}}</th>
+            <th id="name_student">{{trans('trans_school.name_student')}}</th>
             <th>{{trans('trans_school.Email')}}</th>
             <th>{{trans('trans_school.gender')}}</th>
             <th>{{trans('trans_school.Grade')}}</th>
@@ -28,13 +28,36 @@
                 <td>{{$student->sections->name_section}}</td>
 
                 <td>
-                    <button wire:click="editStudent({{$student->id}})" onclick="student_edit()"  class="btn btn-info btn-sm" role="button" aria-pressed="true"><i class="fa fa-edit"></i></button>
-                    
-                    <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#delete{{ $student->id }}"
-                         title="{{ trans('trans_school.Delete') }}"><i class="fa fa-trash"></i></button>
+                    <div class="dropdown show">
+                        <a class="btn btn-success btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{trans('trans_school.Processes')}}
+                        </a>
 
-                    <button wire:click="showDetailsStudent({{$student->id}})" onclick="student_details()" class="btn btn-warning btn-sm" role="button" aria-pressed="true"><i class="far fa-eye"></i></button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <button  wire:click="showDetailsStudent({{$student->id}})" onclick="student_details()" class="btn btn-warning btn-sm dropdown-item"><i style="color: #ffc107" class="far fa-eye"></i>&nbsp; {{trans('trans_school.View_student_data')}}</button>
+                            <button wire:click="editStudent({{$student->id}})" onclick="student_edit()"  class="btn btn-info btn-sm dropdown-item" role="button" aria-pressed="true"><i style="color: green" class="fa fa-edit"></i>&nbsp; {{trans('trans_school.Modify_student_data')}}</button>
+                            <a href="{{route('Fees_Invoices.show',$student->id)}}" class="btn btn-sm dropdown-item" ><i style="color: #0000cc" class="fa fa-edit "></i>&nbsp;{{trans('trans_school.Add_fee_invoice')}}&nbsp;</a>
+                            <a class="dropdown-item" href="{{route('receipt_students.show',$student->id)}}"><i style="color: #9dc8e2" class="fas fa-money-bill-alt"></i>&nbsp; &nbsp;{{trans('trans_school.Catch_Receipt')}}</a>
+                            <button type="button" class="btn btn-danger btn-sm dropdown-item" data-toggle="modal" data-target="#delete{{ $student->id }}"
+                                title="{{ trans('trans_school.Delete') }}"><i style="color:red" class="fa fa-trash"></i>&nbsp; {{trans('trans_school.Delete_student_data')}}</button>
+                        </div>
+
+                    </div>
                 </td>
+
+                {{-- <td>
+                    <div class="dropdown show">
+                        <a class="btn btn-success btn-sm dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            {{trans('trans_school.Processes')}}
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="{{route('Students.show',$student->id)}}"><i style="color: #ffc107" class="far fa-eye "></i>&nbsp;  عرض بيانات الطالب</a>
+                            <a class="dropdown-item" href="{{route('Students.edit',$student->id)}}"><i style="color:green" class="fa fa-edit"></i>&nbsp;  تعديل بيانات الطالب</a>
+                            <a class="dropdown-item" href="{{route('Fees_Invoices.show',$student->id)}}"><i style="color: #0000cc" class="fa fa-edit"></i>&nbsp;اضافة فاتورة رسوم&nbsp;</a>
+                            <a class="dropdown-item" data-target="#Delete_Student{{ $student->id }}" data-toggle="modal" href="##Delete_Student{{ $student->id }}"><i style="color: red" class="fa fa-trash"></i>&nbsp;  حذف بيانات الطالب</a>
+                        </div>
+                    </div>
+                </td> --}}
             </tr>
 
                 <!-- delete_modal_student -->
@@ -72,3 +95,4 @@
         </tbody>
     </table>
 </div>
+

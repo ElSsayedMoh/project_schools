@@ -105,5 +105,27 @@
         })
 
     })
+
+
 </script>
 
+<script>
+    // function btnDeleteContent(){
+    // var deleteRow = document.getElementById("btnDeleteContent");
+
+    // deleteRow.remove();
+    // }
+
+
+        // deleteRow.addE.addRoutes() = function (){
+        //     // let a = 'a7a';
+        //     // this.remove()
+        //     console.log(this.a);
+        //     console.log('ifgiyu')
+        // }
+        // document.addEventListener("click", function(){
+        //     console.log('ughiu')
+        // })
+        
+</script>
+@stack('scripts')

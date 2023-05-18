@@ -15,7 +15,6 @@
         "Edit_Trans" => "تعديل العملية",
         "Submit" => " حفظ البيانات",
         "Close" => "إلغاء",
-        "Accounts" => "الحسابات",
         "Attendance" => "الحضور و الغياب",
         "Exams" => "الامتحانات",
         "library" => "المكتبة",
@@ -149,6 +148,36 @@
         "List_of_graduates" => "قائمة المتخرجين",
         "graduating_students" => "الطلاب المتخرجين",
         "Are_you_sure_about_this_process" => "هل انت متاكد من هذه العملية ؟",
+        "study_fees" => "الرسوم الدراسية",
+        "View_student_data" => "عرض بيانات الطالب",
+        "Modify_student_data" => "تعديل بيانات الطالب",
+        "Add_fee_invoice" => "اضافة فاتورة رسوم",
+        "Delete_student_data" => "حذف بيانات الطالب",
+        "Add_New_Invoice" => "إضافة فاتورة جديدة",
+        "Add_Row" => "إدراج سجل",
+
+
+
+        //////////////////////////////// Accounts ////////////////////////////////
+        "Accounts" => "الحسابات",
+        "Amount" => "المبلغ",
+        "Add_new_fees" => "إضافة رسوم جديدة",
+        "Add_fees" => "اضافة رسوم دراسية",
+        "Name" => "الإسم",
+        "study_fees" => "الرسوم الدراسية",
+        "Fee_type" => "نوع الرسوم",
+        "description" => "البيان",
+        "School_Invoices" => "الفواتير الدراسية",
+        "Modify_an_invoice" => "تعديل فاتورة",
+        "invoice_delete" => "حذف فاتورة",
+        "Catch_Receipt" => "سند قبض",
+        "Delete_receipt_voucher" => "حذف سند قبض",
+        "receipt" => " سندات القبض",
+        "receipt_edit" => "تعديل سند قبض",
+
+
+
+
 
 
 
@@ -182,6 +211,7 @@
 
         ////////////////////// translation message //////////////////
         "Success" => "تم حفظ البيانات بنجاح.",
+        "Deleted_successfully" => "تم الحذف بنجاح",
 
 
 

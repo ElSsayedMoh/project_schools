@@ -38,7 +38,7 @@
 <div class="row">
     <div class="col-md-12 mb-30">
         <div class="card card-statistics h-100">
-            <div class="card-body">
+            <div class="card-body" id="jjjjj">
                 @livewire('students.class-students')
             </div>
         </div>
@@ -48,8 +48,17 @@
 @endsection
 @section('js')
 
+
+
 @livewireScripts
 
+{{-- <script>
+
+    document.addEventListener('livewire:load', function () {
+        var test =  document.getElementById('repeaterId');
+        console.log(test.innerHTML);
+    })
+</script> --}}
 <script>
     // function change_selected() {
     //     setInterval(function(){
@@ -59,6 +68,13 @@
     //     },700)
     // }
     
+</script>
+
+<script>
+
+    // document.addEventListener('livewire:load', function () {
+    //     console.log(this.innerHTML);
+    // })
 </script>
 
 <script>
@@ -88,7 +104,9 @@
         $('.text-details-student').hide(500);
     }
 
-
 </script>
+@stack('all_scripts')
+
 
 @endsection
+

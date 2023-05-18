@@ -153,6 +153,39 @@
         "List_of_graduates" => "List of graduates",
         "graduating_students" => "Graduate students",
         "Are_you_sure_about_this_process" => "Are you sure about this process?",
+        "study_fees" => "Study Fee",
+        "View_student_data" => "View student data",
+        "Modify_student_data" => "Modify student data",
+        "Add_fee_invoice" => "Add fee invoice",
+        "Delete_student_data" => "Delete student data",
+        "Add_New_Invoice" =>"Add New Invoice",
+        "Add_Row" => "Add Row",
+
+
+        //////////////////////////////// Accounts ////////////////////////////////
+        "Accounts" => "Accounts",
+        "Amount" => "Amount",
+        "Add_new_fees" => "Add New Fees",
+        "Add_fees" => "Add Fees",
+        "Name" => "The Name",
+        "study_fees" => "The study fees",
+        "Fee_type" => "Fee type",
+        "description" => "description",
+        "School_Invoices" => "School_Invoices",
+        "Modify_an_invoice" => "Modify an invoice",
+        "invoice_delete" => "Invoice Delete",
+        "Catch_Receipt" => "Catch Receipt",
+        "Delete_receipt_voucher" => "Delete a receipt voucher",
+        "receipt" => "Receipt",
+        "receipt_edit" => "receipt_edit",
+
+
+
+
+
+
+
+
         
 
 
@@ -173,4 +206,6 @@
 
         ////////////////////// translation message //////////////////
         "Success" => "Data Has Been Saved Successfully!",
+        "Deleted_successfully" => "Deleted successfully",
+
     ];

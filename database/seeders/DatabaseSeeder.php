@@ -8,6 +8,7 @@ use Database\Seeders\NationalitiesSeeder;
 use Database\Seeders\ReligionSeeder;
 use Database\Seeders\GenderSeeder;
 use Database\Seeders\SpecializationSeeder;
+use Database\Seeders\UserSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -24,5 +25,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ReligionSeeder::class);
         $this->call(GenderSeeder::class);
         $this->call(SpecializationSeeder::class);
+        $this->call(UserSeeder::class);
     }
 }
