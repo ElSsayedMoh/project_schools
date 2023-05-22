@@ -174,6 +174,13 @@
         "Delete_receipt_voucher" => "حذف سند قبض",
         "receipt" => " سندات القبض",
         "receipt_edit" => "تعديل سند قبض",
+        "Exclude_fees" => "إستبعاد رسوم",
+        "Student_credit" => "رصيد الطالب",
+        "study_fees_processing" => "معالجة الرسوم الدراسية",
+        "Payment_student" => "سندات الصرف",
+        "one_payment_student" => "سند صرف",
+
+
 
 
 

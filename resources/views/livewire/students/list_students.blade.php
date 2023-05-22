@@ -38,6 +38,8 @@
                             <button wire:click="editStudent({{$student->id}})" onclick="student_edit()"  class="btn btn-info btn-sm dropdown-item" role="button" aria-pressed="true"><i style="color: green" class="fa fa-edit"></i>&nbsp; {{trans('trans_school.Modify_student_data')}}</button>
                             <a href="{{route('Fees_Invoices.show',$student->id)}}" class="btn btn-sm dropdown-item" ><i style="color: #0000cc" class="fa fa-edit "></i>&nbsp;{{trans('trans_school.Add_fee_invoice')}}&nbsp;</a>
                             <a class="dropdown-item" href="{{route('receipt_students.show',$student->id)}}"><i style="color: #9dc8e2" class="fas fa-money-bill-alt"></i>&nbsp; &nbsp;{{trans('trans_school.Catch_Receipt')}}</a>
+                            <a class="dropdown-item" href="{{route('fee_processing.show',$student->id)}}"><i style="color: #ffc107" class="fas fa-money-bill-alt"></i>&nbsp; &nbsp;{{trans('trans_school.Exclude_fees')}}</a>
+                            <a class="dropdown-item" href="{{route('Payment_student.show',$student->id)}}"><i style="color: red" class="fas fa-money-bill-alt"></i>&nbsp; &nbsp;{{trans('trans_school.one_payment_student')}}</a>
                             <button type="button" class="btn btn-danger btn-sm dropdown-item" data-toggle="modal" data-target="#delete{{ $student->id }}"
                                 title="{{ trans('trans_school.Delete') }}"><i style="color:red" class="fa fa-trash"></i>&nbsp; {{trans('trans_school.Delete_student_data')}}</button>
                         </div>

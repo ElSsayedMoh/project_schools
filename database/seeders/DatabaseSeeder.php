@@ -9,6 +9,7 @@ use Database\Seeders\ReligionSeeder;
 use Database\Seeders\GenderSeeder;
 use Database\Seeders\SpecializationSeeder;
 use Database\Seeders\UserSeeder;
+use Database\Seeders\GradeSeeder;
 
 class DatabaseSeeder extends Seeder
 {
@@ -26,5 +27,6 @@ class DatabaseSeeder extends Seeder
         $this->call(GenderSeeder::class);
         $this->call(SpecializationSeeder::class);
         $this->call(UserSeeder::class);
+        $this->call(GradeSeeder::class);
     }
 }

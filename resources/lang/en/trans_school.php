@@ -178,6 +178,14 @@
         "Delete_receipt_voucher" => "Delete a receipt voucher",
         "receipt" => "Receipt",
         "receipt_edit" => "receipt_edit",
+        "Exclude_fees" => "Exclude fees",
+        "Student_credit" => "Student credit",
+        "study_fees_processing" => "School fees Processing",
+        "Payment_student" => "Payment Student",
+        "one_payment_student" => "One Payment Student",
+
+
+
 
 
 

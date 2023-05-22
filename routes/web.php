@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\HomeController;
+// use App\Models\FeeProcessing;
 use Illuminate\Support\Facades\View;
 
 Auth::routes();
@@ -63,13 +64,13 @@ Route::group(
                 Route::resource('StudentsGraduate', StudentsGraduateController::class);
                 Route::resource('Fees_Invoices' , FeesInvoicesController::class);
                 Route::resource('receipt_students' , ReceiptStudentsController::class);
-
+                Route::resource('Payment_student' , PaymentStudentController::class);
             });
             
-
-
             Route::group(['namespace' => 'App\Http\Controllers\Fees'], function(){
                 Route::resource('Fees' , FeesController::class);
+                Route::resource('fee_processing' , FeeProcessingController::class);
+
             });
 
             // Route::livewire('livewire/add-invoice', 'add-invoice');
