@@ -179,37 +179,12 @@
         "study_fees_processing" => "معالجة الرسوم الدراسية",
         "Payment_student" => "سندات الصرف",
         "one_payment_student" => "سند صرف",
+        "Attendance" => "الحضور و الغياب",
 
-
-
-
-
-
-
-
-
-
-
-
-
-
+        ///////////////////////////////// Attendance /////////////////
+        "Attendance_and_absence_list_for_students" => "قائمة الحضور والغياب للطلاب",
+        "today_date" => "تاريخ اليوم",
         
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 

@@ -65,6 +65,7 @@ Route::group(
                 Route::resource('Fees_Invoices' , FeesInvoicesController::class);
                 Route::resource('receipt_students' , ReceiptStudentsController::class);
                 Route::resource('Payment_student' , PaymentStudentController::class);
+                Route::resource('Attendance' , AttendanceController::class);
             });
             
             Route::group(['namespace' => 'App\Http\Controllers\Fees'], function(){

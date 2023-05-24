@@ -183,6 +183,13 @@
         "study_fees_processing" => "School fees Processing",
         "Payment_student" => "Payment Student",
         "one_payment_student" => "One Payment Student",
+        "Attendance" => "Attendance" ,
+
+
+        ///////////////////////////////// Attendance /////////////////
+        "Attendance_and_absence_list_for_students" => "Attendance and absence list for students",
+        "today_date" => "Today's date",
+
 
 
 

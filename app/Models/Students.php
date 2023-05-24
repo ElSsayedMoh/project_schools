@@ -54,4 +54,9 @@ class Students extends Model
     {
         return $this->hasMany('App\Models\StudentAccount', 'student_id');
     }
+
+    public function attendance()
+    {
+        return $this->hasMany('App\Models\Attendances', 'student_id');
+    }
 }
