@@ -184,6 +184,15 @@
         ///////////////////////////////// Attendance /////////////////
         "Attendance_and_absence_list_for_students" => "قائمة الحضور والغياب للطلاب",
         "today_date" => "تاريخ اليوم",
+
+        ////////////// Subjects //////////////////////////
+        "Subjects" => "المواد الدراسية",
+        "list_of_subjects" => "قائمة الواد الدراسية",
+        "Add_a_new_article" => "اضافة مادة جديدة",
+        "Article_name_in_Arabic" => "اسم المادة باللغة العربية",
+        "Article_name_in_English" => "اسم المادة باللغة الإنجليزية",
+
+
         
 
 

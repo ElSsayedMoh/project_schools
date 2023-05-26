@@ -1,12 +1,9 @@
 <?php
-
-// use App\Http\Controllers\GradeController;
-
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\HomeController;
-// use App\Models\FeeProcessing;
+use App\Http\Controllers\Subjects\SubjectsController;
 use Illuminate\Support\Facades\View;
 
 Auth::routes();
@@ -67,14 +64,17 @@ Route::group(
                 Route::resource('Payment_student' , PaymentStudentController::class);
                 Route::resource('Attendance' , AttendanceController::class);
             });
-            
+
+
+            ///////////////////// Fees //////////////////////
             Route::group(['namespace' => 'App\Http\Controllers\Fees'], function(){
                 Route::resource('Fees' , FeesController::class);
                 Route::resource('fee_processing' , FeeProcessingController::class);
 
             });
 
-            // Route::livewire('livewire/add-invoice', 'add-invoice');
+            ///////////////////// Subjects //////////////////////
+            Route::resource('Subjects' ,SubjectsController::class );
 });
 
 

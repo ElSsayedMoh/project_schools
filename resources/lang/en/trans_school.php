@@ -191,31 +191,11 @@
         "today_date" => "Today's date",
 
 
-
-
-
-
-
-
-
-
-
-
-        
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+                ////////////// Subjects //////////////////////////
+        "Subjects" => "Subjects",
+        "list_of_subjects" => "list_of_subjects",
+        "Add_a_new_article" => "Add a new article",
+        "Article_name_in_Arabic" => "Article name in Arabic",
 
 
 

@@ -142,6 +142,19 @@
                         </ul>
                     </li>
 
+                    
+                    <!-- Subjects-->
+                    <li>
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#Exams-icon">
+                            <div class="pull-left"><i class="fas fa-book-open"></i><span class="right-nav-text">{{trans('trans_school.Subjects')}}</span></div>
+                            <div class="pull-right"><i class="ti-plus"></i></div>
+                            <div class="clearfix"></div>
+                        </a>
+                        <ul id="Exams-icon" class="collapse" data-parent="#sidebarnav">
+                            <li> <a href="{{route('Subjects.index')}}">{{trans('trans_school.list_of_subjects')}}</a> </li>
+                        </ul>
+                    </li>
+
                     <!-- Exams-->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#Exams-icon">
