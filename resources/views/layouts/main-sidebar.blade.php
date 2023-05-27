@@ -145,27 +145,25 @@
                     
                     <!-- Subjects-->
                     <li>
-                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#Exams-icon">
+                        <a href="javascript:void(0);" data-toggle="collapse" data-target="#Subjects-icon">
                             <div class="pull-left"><i class="fas fa-book-open"></i><span class="right-nav-text">{{trans('trans_school.Subjects')}}</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
-                        <ul id="Exams-icon" class="collapse" data-parent="#sidebarnav">
+                        <ul id="Subjects-icon" class="collapse" data-parent="#sidebarnav">
                             <li> <a href="{{route('Subjects.index')}}">{{trans('trans_school.list_of_subjects')}}</a> </li>
                         </ul>
                     </li>
 
-                    <!-- Exams-->
+                    <!-- Quizzes-->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#Exams-icon">
-                            <div class="pull-left"><i class="fas fa-book-open"></i><span class="right-nav-text">{{trans('trans_school.Exams')}}</span></div>
+                            <div class="pull-left"><i class="fas fa-book-open"></i><span class="right-nav-text">{{trans('trans_school.Quizzes')}}</span></div>
                             <div class="pull-right"><i class="ti-plus"></i></div>
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Exams-icon" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="fontawesome-icon.html">font Awesome</a> </li>
-                            <li> <a href="themify-icons.html">Themify icons</a> </li>
-                            <li> <a href="weather-icon.html">Weather icons</a> </li>
+                            <li> <a href="{{route('Quizze.index')}}">@lang('trans_school.list_of_quizzes')</a> </li>
                         </ul>
                     </li>
 
@@ -178,14 +176,12 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="library-icon" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="fontawesome-icon.html">font Awesome</a> </li>
-                            <li> <a href="themify-icons.html">Themify icons</a> </li>
-                            <li> <a href="weather-icon.html">Weather icons</a> </li>
+                            <li> <a href="{{route('Library.index')}}">قائمة الكتب</a> </li>
                         </ul>
                     </li>
 
 
-                    <!-- Onlinec lasses-->
+                    <!-- Online classes-->
                     <li>
                         <a href="javascript:void(0);" data-toggle="collapse" data-target="#Onlineclasses-icon">
                             <div class="pull-left"><i class="fas fa-video"></i><span class="right-nav-text">{{trans('trans_school.Onlineclasses')}}</span></div>
@@ -193,9 +189,8 @@
                             <div class="clearfix"></div>
                         </a>
                         <ul id="Onlineclasses-icon" class="collapse" data-parent="#sidebarnav">
-                            <li> <a href="fontawesome-icon.html">font Awesome</a> </li>
-                            <li> <a href="themify-icons.html">Themify icons</a> </li>
-                            <li> <a href="weather-icon.html">Weather icons</a> </li>
+                            <li> <a href="{{route('online_classes.index')}}">@lang('trans_school.Direct_contact_with_Zoom')</a> </li>
+                            <li> <a href="themify-icons.html">@lang('trans_school.Indirect_contact_with_Zoom')</a> </li>
                         </ul>
                     </li>
 

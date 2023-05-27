@@ -1,8 +1,10 @@
 <?php
+
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\Quizzes\QuizzesController;
 use App\Http\Controllers\Subjects\SubjectsController;
 use Illuminate\Support\Facades\View;
 
@@ -63,6 +65,15 @@ Route::group(
                 Route::resource('receipt_students' , ReceiptStudentsController::class);
                 Route::resource('Payment_student' , PaymentStudentController::class);
                 Route::resource('Attendance' , AttendanceController::class);
+
+                //// online classes
+                Route::resource('online_classes' , OnlineClasseController::class);
+                Route::get('/offline', [App\Http\Controllers\Students\OnlineClasseController::class , 'offLineCreate'])->name('offline.create');
+                Route::post('/offline', [App\Http\Controllers\Students\OnlineClasseController::class , 'offLineStore'])->name('offline.store');
+
+                /// Library
+                Route::resource('Library' , LibraryController::class);
+                Route::get('downloadAttachment/{file_name}' , [App\Http\Controllers\Students\LibraryController::class , 'downloadAttachment'])->name('downloadAttachment');
             });
 
 
@@ -75,8 +86,10 @@ Route::group(
 
             ///////////////////// Subjects //////////////////////
             Route::resource('Subjects' ,SubjectsController::class );
-});
 
+            ///////////////////// Quizze //////////////////////
+            Route::resource('Quizze' ,QuizzesController::class );
+});
 
 
 

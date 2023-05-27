@@ -17,7 +17,6 @@
         "Close" => "Close",
         "Accounts" => "Accounts",
         "Attendance" => "Attendance",
-        "Exams" => "Exams",
         "library" => "library",
         "Onlineclasses" => "Online classes",
         "Settings" => "Settings",
@@ -197,8 +196,18 @@
         "Add_a_new_article" => "Add a new article",
         "Article_name_in_Arabic" => "Article name in Arabic",
 
+        
+        /////////////////////////////  Quizzes   ///////////////////////////////////
+        "Quizzes" => "Quizzes",
+        "list_of_quizzes" => "List of quizzes",
 
 
+        ////////////////////// Online Classes  //////////////////
+        "Direct_contact_with_Zoom" => "Direct Contact with Zoom",
+        "Indirect_contact_with_Zoom" => "Indirect contact with Zoom",
+
+
+        
         ////////////////////// translation message //////////////////
         "Success" => "Data Has Been Saved Successfully!",
         "Deleted_successfully" => "Deleted successfully",
