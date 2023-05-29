@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\Quizzes\QuizzesController;
+use App\Http\Controllers\Settings\SettingController;
 use App\Http\Controllers\Subjects\SubjectsController;
 use Illuminate\Support\Facades\View;
 
@@ -89,6 +90,11 @@ Route::group(
 
             ///////////////////// Quizze //////////////////////
             Route::resource('Quizze' ,QuizzesController::class );
+
+            ///////////////////// Settings //////////////////////
+            Route::get('settings', [SettingController::class , 'index'])->name('settings.index');
+            Route::put('settings', [SettingController::class , 'update'])->name('settings.update');
+
 });
 
 

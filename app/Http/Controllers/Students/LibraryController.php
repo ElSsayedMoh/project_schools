@@ -37,7 +37,7 @@ class LibraryController extends Controller
         $books->section_id = $request->section_id;
         $books->teacher_id = 1;
         $books->save();
-        $this->uploadFile($request,'file_name');
+        $this->uploadFile($request,'library' ,'file_name');
 
         toastr()->success(trans('messages.success'));
         return redirect()->route('Library.index');
@@ -70,7 +70,7 @@ class LibraryController extends Controller
 
             if($request->hasFile('file_name')){
                 $this->deleteFile($book->file_name);
-                $this->uploadFile($request,'file_name');
+                $this->uploadFile($request, 'library' , 'file_name');
 
                 $file_name_new = $request->file('file_name')->getClientOriginalName();
                 $book->file_name = $book->file_name !== $file_name_new ? $file_name_new : $book->file_name;
