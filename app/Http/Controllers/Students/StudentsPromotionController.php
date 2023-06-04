@@ -34,7 +34,6 @@ class StudentsPromotionController extends Controller
         $id = $request->get('id');
         $section = Sections::where('class_id' , $id)->pluck('name_section','id');
         return $section ;
-        
     }
 
 

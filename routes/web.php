@@ -54,7 +54,6 @@ Route::group(
             ///////////////// Sections /////////////
             Route::group(['namespace' => 'App\Http\Controllers\Sections'], function(){
                 Route::resource('Sections', SectionsController::class);
-                Route::get('/classes/{id}', [App\Http\Controllers\Sections\SectionsController::class, 'getClasses'])->name('/classes/{id}');
             });
 
             //////////////////// Parents //////////////////////
@@ -70,8 +69,7 @@ Route::group(
             Route::view('Students', 'Pages.Students.list_students');
             Route::group(['namespace' => 'App\Http\Controllers\Students'], function(){
                 Route::resource('StudentsPromotion' , StudentsPromotionController::class);
-                Route::get('getClassroom' , [App\Http\Controllers\Students\StudentsPromotionController::class , 'getClassroom'])->name('getClassroom');
-                Route::get('getSection' , [App\Http\Controllers\Students\StudentsPromotionController::class , 'getSection'])->name('getSection');
+
                 Route::resource('StudentsGraduate', StudentsGraduateController::class);
                 Route::resource('Fees_Invoices' , FeesInvoicesController::class);
                 Route::resource('receipt_students' , ReceiptStudentsController::class);
@@ -110,4 +108,6 @@ Route::group(
 
 
 
-
+Route::get('/classes/{id}', [App\Http\Controllers\Sections\SectionsController::class, 'getClasses'])->name('/classes/{id}');
+Route::get('getClassroom' , [App\Http\Controllers\Students\StudentsPromotionController::class , 'getClassroom'])->name('getClassroom');
+Route::get('getSection' , [App\Http\Controllers\Students\StudentsPromotionController::class , 'getSection'])->name('getSection');

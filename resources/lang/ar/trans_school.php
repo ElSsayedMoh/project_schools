@@ -2,7 +2,6 @@
 
     return [
         "school_management_project" => "برنامج ادارة المدارس",
-        "Dashboard" => "لوحة التحكم",
         "Home" => "الرئيسية",
         "School_Grade" => "المراحل الدراسية",
         "list_school_grade" => "قائمة المراحل الدراسية",
@@ -27,6 +26,26 @@
         "Name_Repeated"=>"الإسم متكرر",
         "cannot_be_deleted" => "لا يمكن حذف المرحلة بسبب وجود صفوف تابعة لها",
         "are_you_soure_to_save_the_data" => "هل انت متاكد من حفظ البيانات ؟",
+
+        /////////////// Dashboard //////////////////////////////
+        "Dashboard" => "لوحة التحكم",
+        "admin_dashboard" => "لوحة تحكم الأدمن",
+        "teacher_dashboard" => "لوحة تحكم المعلمين",
+        "student_dashboard" => "لوحة تحكم الطلاب",
+        "parent_dashboard" => "لوحة تحكم أولياء الأمور",
+        "count_students" => "عدد الطلاب",
+        "count_teachers" => "عدد المعلمين",
+        "count_parents" => "عدد اولياء الامور",
+        "count_class_rooms" => "عدد الفصول الدراسية",
+        "last_process_on_system" => "اخر العمليات علي النظام",
+        "the_invoices" => "الفواتير",
+        "view_data" => "عرض البيانات",
+        "There_is_no_data" => "لاتوجد بيانات",
+        "name_parent" => "اسم ولي الامر",
+        "invoice_date" => "تاريخ الفاتورة",
+        "Count_Sections" => "عدد الأقسام",
+        "welcome" => "مرحبا بك",
+        "mr" => "أ",
 
         ////////////////    Classes Rooms   ///////////////////
         "classes" => "الصفوف",
@@ -202,6 +221,8 @@
         "Direct_contact_with_Zoom" => "الإتصال المباشر مع زووم",
         "Indirect_contact_with_Zoom" => "الإتصال غير المباشر مع زووم",
 
+        /////////// profile //////////////////
+        "profile" => "الملف الشخصى",
 
 
 

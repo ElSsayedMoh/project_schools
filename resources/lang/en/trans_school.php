@@ -2,7 +2,6 @@
 
     return [
         "school_management_project" => "School Management Project",
-        "Dashboard" => "Dashboard",
         "Home" => "Home",
         "School_Grade" => "Shool Grade",
         "list_school_grade" => "List School Grade",
@@ -28,6 +27,27 @@
         "Name_Repeated"=>"The name is repeated",
         "cannot_be_deleted" => "The stage cannot be deleted because it has child rows",
         "are_you_soure_to_save_the_data" => "Are you sure to save the data?",
+
+        /////////////// Dashboard //////////////////////////////
+        "Dashboard" => "Dashboard",
+        "admin_dashboard" => "Admin Dashboard",
+        "teacher_dashboard" => "Teacher Dashboard",
+        "student_dashboard" => "Student Dashboard",
+        "parent_dashboard" => "Parent Dashboard",
+        "count_students" => "Count Students",
+        "count_teachers" => "Count Teachers",
+        "count_parents" => "Count Parents",
+        "count_class_rooms" => "Count Class Rooms",
+        "last_process_on_system" => "The Last Process on The System",
+        "the_invoices" => "The Invoices",
+        "view_data" => "View Data",
+        "There_is_no_data" => "There is no data",
+        "name_parent" => "Name Parent",
+        "invoice_date" => "Invoice Date",
+        "Count_Sections" => "Count Sections",
+        "welcome" => "Welcome",
+        "mr" => "Mr",
+
 
 
         ////////////////    Classes Rooms   ///////////////////
@@ -206,6 +226,8 @@
         "Direct_contact_with_Zoom" => "Direct Contact with Zoom",
         "Indirect_contact_with_Zoom" => "Indirect contact with Zoom",
 
+        /////////// profile //////////////////
+        "profile" => "profile",
 
         
         ////////////////////// translation message //////////////////

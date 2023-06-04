@@ -33,6 +33,7 @@
         @include('layouts.main-header')
 
         @include('layouts.main-sidebar')
+        {{-- <x-main-sidebar></x-main-sidebar> --}}
 
         <!--=================================
  Main content -->
@@ -40,18 +41,14 @@
         <div class="content-wrapper">
             <div class="page-title" >
                 <div class="row">
-                    <div class="col-sm-6" >
-                        <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">@lang('trans_school.admin_dashboard')</h4>
-                    </div>
-                    <div class="col-sm-6">
-                        <ol class="breadcrumb pt-0 pr-0 float-left float-sm-right">
-                        </ol>
+                    <div class="col-sm-4">
+                        <h4 class="mb-0" style="font-family: 'Cairo', sans-serif">&nbsp; @lang('trans_school.welcome') @lang('trans_school.mr') / {{auth()->user()->name}}</h4><br>
                     </div>
                 </div>
             </div>
             <!-- widgets -->
             <div class="row" >
-                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+                <div class="col-xl-6 col-lg-6 col-md-6 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="clearfix">
@@ -62,56 +59,17 @@
                                 </div>
                                 <div class="float-right text-right">
                                     <p class="card-text text-dark">@lang('trans_school.count_students')</p>
-                                    <h4>{{\App\Models\Students::count()}}</h4>
+                                    <h4>{{$count_students}}</h4>
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fas fa-binoculars mr-1" aria-hidden="true"></i><a href="{{url('Students')}}" target="_blank"><span class="text-danger">@lang('trans_school.view_data')</span></a>
+                                <i class="fas fa-binoculars mr-1" aria-hidden="true"></i><a href="{{route('students_of_teacher')}}" target="_blank"><span class="text-danger">@lang('trans_school.view_data')</span></a>
                             </p>
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
-                    <div class="card card-statistics h-100">
-                        <div class="card-body">
-                            <div class="clearfix">
-                                <div class="float-left">
-                                    <span class="text-warning">
-                                        <i class="fas fa-chalkboard-teacher highlight-icon" aria-hidden="true"></i>
-                                    </span>
-                                </div>
-                                <div class="float-right text-right">
-                                    <p class="card-text text-dark">@lang('trans_school.count_teachers')</p>
-                                    <h4>{{\App\Models\Teachers::count()}}</h4>
-                                </div>
-                            </div>
-                            <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fas fa-binoculars mr-1" aria-hidden="true"></i><a href="{{route('Teachers.index')}}" target="_blank"><span class="text-danger">@lang('trans_school.view_data')</span></a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
-                    <div class="card card-statistics h-100">
-                        <div class="card-body">
-                            <div class="clearfix">
-                                <div class="float-left">
-                                    <span class="text-success">
-                                        <i class="fas fa-user-tie highlight-icon" aria-hidden="true"></i>
-                                    </span>
-                                </div>
-                                <div class="float-right text-right">
-                                    <p class="card-text text-dark">@lang('trans_school.count_parents')</p>
-                                    <h4>{{\App\Models\Parents::count()}}</h4>
-                                </div>
-                            </div>
-                            <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fas fa-binoculars mr-1" aria-hidden="true"></i><a href="{{url('Parents')}}" target="_blank"><span class="text-danger">@lang('trans_school.view_data')</span></a>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-xl-3 col-lg-6 col-md-6 mb-30">
+
+                <div class="col-xl-6 col-lg-6 col-md-6 mb-30">
                     <div class="card card-statistics h-100">
                         <div class="card-body">
                             <div class="clearfix">
@@ -121,12 +79,12 @@
                                     </span>
                                 </div>
                                 <div class="float-right text-right">
-                                    <p class="card-text text-dark">@lang('trans_school.count_class_rooms')</p>
-                                    <h4>{{\App\Models\Sections::count()}}</h4>
+                                    <p class="card-text text-dark">@lang('trans_school.Count_Sections')</p>
+                                    <h4>{{$count_sections}}</h4>
                                 </div>
                             </div>
                             <p class="text-muted pt-3 mb-0 mt-2 border-top">
-                                <i class="fas fa-binoculars mr-1" aria-hidden="true"></i><a href="{{route('Sections.index')}}" target="_blank"><span class="text-danger">@lang('trans_school.view_data')</span></a>
+                                <i class="fas fa-binoculars mr-1" aria-hidden="true"></i><a href="{{route('sections_of_teacher')}}" target="_blank"><span class="text-danger">@lang('trans_school.view_data')</span></a>
                             </p>
                         </div>
                     </div>
@@ -326,7 +284,6 @@
                 </div>
             </div>
 
-            <livewire:calendar />
 
             <!--=================================
  wrapper -->

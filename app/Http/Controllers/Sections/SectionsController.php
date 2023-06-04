@@ -149,7 +149,6 @@ class SectionsController extends Controller
 
     public function getClasses($id){
         $list_classes = ClassRoom::where('grade_id', $id)->pluck('name_class', 'id');
-        // return response()->json($list_classes);
         return $list_classes;
     }
 }

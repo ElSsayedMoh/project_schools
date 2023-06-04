@@ -21,9 +21,9 @@
                     <div class="col-xl-12 mb-30">
                         <div class="card card-statistics h-100">
                             <div class="card-body">
-                                <a href="{{route('online_classes.create')}}" class="btn btn-success btn-sm" role="button"
+                                <a href="{{route('online_classes_teacher.create')}}" class="btn btn-success btn-sm" role="button"
                                    aria-pressed="true">اضافة حصة جديدة</a>
-                                   <a href="{{route('offline.create')}}" class="btn btn-primary btn-sm" role="button"
+                                   <a href="{{route('offline_teacher.create')}}" class="btn btn-primary btn-sm" role="button"
                                    aria-pressed="true">اضافة حصة اوفلاين جديدة</a><br><br>
                                 <div class="table-responsive">
                                     <table id="datatable" class="table  table-hover table-sm table-bordered p-0"
@@ -74,7 +74,7 @@
                                                         </button>
                                                     </div>
                                                     <div class="modal-body">
-                                                        <form action="{{route('online_classes.destroy','test')}}" method="post">
+                                                        <form action="{{route('online_classes_teacher.destroy','test')}}" method="post">
                                                             @csrf
                                                             @method('DELETE')
                                                             <span class="float-left" style="font-size: initial;" >{{trans('trans_school.Are_you_sure_about_this_process')}}</span><br><br>

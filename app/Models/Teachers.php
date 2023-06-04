@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 use App\Models\Sections;
+use Illuminate\Foundation\Auth\User as Authenticatable;
 
-
-class Teachers extends Model
+class Teachers extends Authenticatable
 {
     use HasFactory;
     use HasTranslations;
@@ -29,7 +29,7 @@ class Teachers extends Model
     }
 
     public function Sections(){
-        return $this->belongsToMany(Sections::class , 'teachers_sections' , 'section_id' , 'teacher_id');
+        return $this->belongsToMany(Sections::class , 'teachers_sections' , 'teacher_id', 'section_id' );
     }
 
 }

@@ -110,6 +110,47 @@
 </script>
 
 <script>
+    $(document).ready(function(){
+        $('select[name="Grade_id_teacher"]').change(function(){
+            var Grade_id = $(this).val();
+            $.ajax({
+                type:'Get',
+                url:'{{route("getClassroomTeacher")}}',
+                dataType: "json",
+                data: { 'id' : Grade_id },
+                success:function(data) {
+                    $('select[name="Classroom_id_teacher"]').empty();
+                    $('select[name="Classroom_id_teacher"]').append('<option selected disabled >{{trans('trans_school.Choose')}}...</option>');
+                    $.each(data, function(key, value){
+                        $('select[name="Classroom_id_teacher"]').append('<option value="' + key + '">' + value + '</option>');
+                    })
+                }
+        });
+        })
+
+        $('select[name="Classroom_id_teacher"]').change(function(){
+            var Classroom_id = $(this).val();
+            $.ajax({
+                type:'Get',
+                url:'{{route("getSectionTeacher")}}',
+                dataType: "json",
+                data: { 'id' : Classroom_id },
+                success:function(data) {
+                    $('select[name="section_id_teacher"]').empty();
+                    $('select[name="section_id_teacher"]').append('<option selected disabled >{{trans('trans_school.Choose')}}...</option>');
+                    $.each(data, function(key, value){
+                        $('select[name="section_id_teacher"]').append('<option value="' + key + '">' + value + '</option>');
+                    })
+                }
+        });
+        })
+
+    })
+
+
+</script>
+
+<script>
     // function btnDeleteContent(){
     // var deleteRow = document.getElementById("btnDeleteContent");
 

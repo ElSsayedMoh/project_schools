@@ -1,33 +1,33 @@
 <?php
 
-namespace App\Http\Controllers\Students;
+namespace App\Http\Controllers\Teachers;
 
 use App\Http\Controllers\Controller;
+use App\Http\Traits\MeetingZoomTrait;
 use App\Models\Grade;
 use App\Models\OnlineClasse;
 use Illuminate\Http\Request;
-use App\Http\Traits\MeetingZoomTrait;
 use MacsiDigital\Zoom\Facades\Zoom;
 
-class OnlineClasseController extends Controller
+class OnlineClassesTeacher extends Controller
 {
     use MeetingZoomTrait;
     public function index()
     {
         $online_classes = OnlineClasse::where('created_by' , auth()->user()->email)->get();
-        return view('Pages.onlineClasses.index' , compact('online_classes'));
+        return view('Pages.Teachers.Dashboard.onlineClasses.index' , compact('online_classes'));
     }
 
 
     public function create()
     {
         $Grades = Grade::all();
-        return view('Pages.onlineClasses.add' , compact('Grades'));
+        return view('Pages.Teachers.Dashboard.onlineClasses.add' , compact('Grades'));
     }
 
     public function offLineCreate(){
         $Grades = Grade::all();
-        return view('Pages.onlineClasses.off_line' , compact('Grades'));
+        return view('Pages.Teachers.Dashboard.onlineClasses.off_line' , compact('Grades'));
     }
 
 
@@ -50,7 +50,7 @@ class OnlineClasseController extends Controller
             ]);
 
             toastr()->success(trans('messages.success'));
-            return redirect()->route('online_classes.index');
+            return redirect()->route('online_classes_teacher.index');
 
         } catch (\Exception $e) {
             return redirect()->back()->with(['error' => $e->getMessage()]);
@@ -74,7 +74,7 @@ class OnlineClasseController extends Controller
             ]);
 
             toastr()->success(trans('messages.success'));
-            return redirect()->route('online_classes.index');
+            return redirect()->route('online_classes_teacher.index');
 
         } catch (\Exception $e) {
             return redirect()->back()->with(['error' => $e->getMessage()]);
@@ -89,7 +89,7 @@ class OnlineClasseController extends Controller
             OnlineClasse::where('meeting_id', $request->id)->delete();
 
             toastr()->error(trans('trans_school.Deleted_successfully'));
-            return redirect()->route('online_classes.index');
+            return redirect()->route('online_classes_teacher.index');
 
         }catch (\Exception $e) {
             return redirect()->back()->with(['error' => $e->getMessage()]);
