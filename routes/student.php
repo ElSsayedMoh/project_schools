@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\Students\Dashboard\ExamsController;
+use App\Http\Controllers\Students\Dashboard\profileController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -28,5 +29,6 @@ Route::group(
     });
 
     Route::resource('student_exams' , ExamsController::class);
+    Route::resource('student_profile' , profileController::class);
 
 });

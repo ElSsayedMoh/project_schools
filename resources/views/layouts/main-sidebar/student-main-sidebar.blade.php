@@ -24,17 +24,10 @@
             </ul>
         </li>
 
-        <!-- profile-->
+        <!-- Settings-->
         <li>
-            <a href="javascript:void(0);" data-toggle="collapse" data-target="#profile-menu">
-                <div class="pull-left"><i class="fas fa-school"></i><span
-                        class="right-nav-text">{{trans('trans_school.profile')}}</span></div>
-                <div class="pull-right"><i class="ti-plus"></i></div>
-                <div class="clearfix"></div>
-            </a>
-            <ul id="profile-menu" class="collapse" data-parent="#sidebarnav">
-                <li><a href="">{{trans('trans_school.profile')}}</a></li>
-            </ul>
+            <a href="{{route('student_profile.index')}}"><i class="fas fa-id-card-alt"></i><span
+                    class="right-nav-text">{{trans('trans_school.profile')}}</span></a>
         </li>
 
 
