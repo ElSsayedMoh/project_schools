@@ -6,6 +6,7 @@ use App\Http\Controllers\Teachers\ProfileController;
 use App\Http\Controllers\Teachers\QuestionController;
 use App\Http\Controllers\Teachers\QuizzesOfTeacherController;
 use App\Http\Controllers\Teachers\StudentsOfTeacherController;
+use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 use App\Models\Students;
 use App\Models\Teachers;
 use Illuminate\Http\Request;
@@ -50,6 +51,8 @@ Route::group(
     Route::resource('quizzes' ,QuizzesOfTeacherController::class );
     Route::get('getClassroomTeacher' , [QuizzesOfTeacherController::class , 'getClassroomTeacher'])->name('getClassroomTeacher');
     Route::get('getSectionTeacher' , [QuizzesOfTeacherController::class , 'getSectionTeacher'])->name('getSectionTeacher');
+    Route::get('quizzes_students/{id}' , [QuizzesOfTeacherController::class , 'quizzes_students'])->name('quizzes.students');
+    Route::post('repeat_quizze' , [QuizzesOfTeacherController::class , 'repeat_quizze'])->name('repeat.quizze');
 
     ///////////////// Question //////////////////////
     Route::resource('Question', QuestionController::class);

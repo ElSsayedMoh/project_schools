@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Teachers;
 
 use App\Http\Controllers\Controller;
 use App\Models\ClassRoom;
+use App\Models\Degree;
 use App\Models\Grade;
 use App\Models\Question;
 use App\Models\Quizzes;
@@ -119,5 +120,16 @@ class QuizzesOfTeacherController extends Controller
         $id = $request->get('id');
         $section = Sections::where('class_id' , $id)->pluck('name_section','id');
         return $section ;
+    }
+
+    public function quizzes_students($quizz_id){
+        $degrees = Degree::where('quizzes_id', $quizz_id)->get();
+        return view('Pages.Teachers.Quizzes.student_quizze' , compact('degrees'));
+    }
+
+    public function repeat_quizze(Request $request){
+        $degree = Degree::where('quizzes_id' , $request->quizze_id)->where('student_id',$request->student_id)->delete();
+        toastr()->success('تم فتح الاختبار مرة اخرى للطالب');
+        return redirect()->back();
     }
 }

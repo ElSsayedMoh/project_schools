@@ -53,9 +53,9 @@
 
                                 <div class="form-row">
                                     <div class="col">
-                                        <label for="title">الاجابات</label>
-                                        <textarea name="answers" class="form-control" id="exampleFormControlTextarea1"
-                                                  rows="4"></textarea>
+                                        <label for="title">الاجابات : <span id="checkAnswers" style="color:red"></span> <span id="succesAnser"></span></label>
+                                        <textarea oninput="filterAnser(this.value)" name="answers" class="form-control"  id="exampleFormControlTextarea1"
+                                                rows="4"></textarea>
                                     </div>
                                 </div>
                                 <br>
@@ -84,7 +84,7 @@
                                     </div>
                                 </div>
                                 <br>
-                                <button class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">حفظ البيانات</button>
+                                <button onclick="eventClick(event)" class="btn btn-success btn-sm nextBtn btn-lg pull-right" type="submit">حفظ البيانات</button>
                             </form>
                         </div>
                     </div>
@@ -97,4 +97,55 @@
 @section('js')
     @toastr_js
     @toastr_render
+    <script>
+            let answers = document.getElementById("exampleFormControlTextarea1");
+            let checkAnswers = document.getElementById("checkAnswers");
+            let succesAnser = document.getElementById("succesAnser");
+            
+        function filterAnser(val){
+            
+            if(val.split('-').length - 1 == 3){
+                checkAnswers.style.display = 'none'
+                answers.style.border = 'none';
+                succesAnser.style.display  = 'inline-block'
+                succesAnser.innerHTML = ' <span style="color:green;margin-right: 10px;">مثالى </span><i style="font-size: initial;margin-right: 5px;color: green;" class="far fa-smile-beam"></i>'
+            }
+            else if (val == ''){
+                answers.style.border = 'none';
+                checkAnswers.innerHTML = ''
+                succesAnser.style.display = 'none'
+            }
+            else if(val.split('-').length - 1 < 3) {
+                checkAnswers.style.display = 'inline-block'
+                answers.style.border = '1px solid red';
+                checkAnswers.innerHTML = ' لابد من وجود  - بين الإجابات و أن لا تقل الإجابات عن 4'; 
+                succesAnser.style.display = 'none'
+            }
+            else if(val.split('-').length - 1 > 3) {
+                checkAnswers.style.display = 'inline-block'
+                checkAnswers.innerHTML = 'لابد أن لا تزيد عدد الإجابات عن 4';
+                answers.style.border = '1px solid red';
+                succesAnser.style.display = 'none'
+            }
+        }
+
+        function eventClick(e){
+            if(checkAnswers.style.display == 'inline-block'){
+                e.preventDefault();
+                answers.style.border = '1px solid red';
+            }
+        }
+    </script>
 @endsection
+
+
+{{-- // if(val.split('-').length - 1 != 3){
+    //         checkAnswers.style.display = 'none'
+    //         answers.style.border = 'none';
+    //     }else if((val.split('-').length - 1) > 3){
+    //         checkAnswers.innerHTML = 'لابد أن لا تزيد عددد الإجابات عن 4';
+    //     }
+    //     else {
+    //         checkAnswers.style.display = 'inline-block'
+    //         checkAnswers.innerHTML = 'لابد من وجود  - بين الإجابات';
+    //     } --}}

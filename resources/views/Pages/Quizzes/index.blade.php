@@ -49,7 +49,7 @@
                                                 <td>{{$quizze->sections->name_section}}</td>
                                                 <td>
                                                     <a href="{{route('Quizze.edit',$quizze->id)}}"
-                                                       class="btn btn-info btn-sm" role="button" aria-pressed="true"><i
+                                                        class="btn btn-info btn-sm" role="button" aria-pressed="true"><i
                                                             class="fa fa-edit"></i></a>
                                                     <button type="button" class="btn btn-danger btn-sm"
                                                             data-toggle="modal"

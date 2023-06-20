@@ -55,6 +55,7 @@
                                                             class="fa fa-trash"></i></button>
                                                     <a href="{{route('quizzes.show',$quizze->id)}}" type="button" class="btn btn-warning btn-sm" title="عرض الأسئلة"><i
                                                             class="far fa-eye text-white" ></i></a>
+                                                    <a href="{{route('quizzes.students',$quizze->id)}}" type="button" class="btn btn-primary btn-sm text-white" title="عرض الطلاب المختبرين"><i class="fas fa-user-check"></i></a>
                                                 </td>
                                             </tr>
 

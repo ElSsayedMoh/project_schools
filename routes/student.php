@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Students\Dashboard\ExamsController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
@@ -25,5 +26,7 @@ Route::group(
     Route::get('/student/dashboard', function () {
         return view('pages.Students.dashboard');
     });
+
+    Route::resource('student_exams' , ExamsController::class);
 
 });

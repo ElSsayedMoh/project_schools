@@ -20,7 +20,7 @@
                 <div class="clearfix"></div>
             </a>
             <ul id="Quizzes-menu" class="collapse" data-parent="#sidebarnav">
-                <li><a href="{{route('Quizze.index')}}">{{trans('trans_school.list_of_quizzes')}}</a></li>
+                <li><a href="{{route('student_exams.index')}}">{{trans('trans_school.list_of_quizzes')}}</a></li>
             </ul>
         </li>
 

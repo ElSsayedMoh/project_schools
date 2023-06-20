@@ -15,7 +15,7 @@
               var checkbox = document.getElementById('drop-remove');
               var data =   @this.events;
               var calendar = new Calendar(calendarEl, {
-              events: JSON.parse(data),
+                    events: JSON.parse(data),
               dateClick(info)  {
                  var title = prompt('أدخل عنوان الحدث');
                  var date = new Date(info.dateStr + 'T00:00:00');
