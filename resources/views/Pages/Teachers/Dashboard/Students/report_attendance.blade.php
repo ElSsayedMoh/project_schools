@@ -79,7 +79,7 @@
                         @foreach($Students as $student)
                             <tr>
                                 <td>{{ $loop->index+1 }}</td>
-                                <td>{{$student->students->name}}</td>
+                                <td>{{$student->students->name ?? 'None'}}</td>
                                 <td>{{$student->grade->name}}</td>
                                 <td>{{$student->section->name_section}}</td>
                                 <td>{{$student->attendance_date}}</td>
